@@ -1,0 +1,29 @@
+{
+  "name": "punify",
+  "author": "cainthebest",
+  "license": "MIT",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "module": "index.mjs",
+  "types": "index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./index.js",
+      "import": "./index.mjs"
+    }
+  },
+  "engines": {
+    "node": ">=20.11.1",
+    "pnpm": "^8.0.0"
+  },
+  "scripts": {
+    "build": "cargo-cp-artifact -nc dist/index.node -- cargo build --message-format=json-render-diagnostics --release",
+    "install": "pnpm build",
+    "preinstall": "npx only-allow pnpm",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "cargo-cp-artifact": "^0.1"
+  }
+}
